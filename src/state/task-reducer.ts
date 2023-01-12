@@ -1,49 +1,23 @@
 import {FilterValuesType, TasksStateType, TodolistType} from '../App';
 import {v1} from 'uuid';
 
-export type RemoveTodolistActionType = {
-    type: 'REMOVE-TODOLIST',
-    id: string
+export type firstActionType = {
+    type: '',
 }
-export type AddTodolistActionType = {
-    type: 'ADD-TODOLIST',
-    title: string
-}
-export type ChangeTodolistTitleActionType = {
-    type: 'CHANGE-TODOLIST-TITLE',
-    id: string
-    title: string
-}
-export type ChangeTodolistFilterActionType = {
-    type: 'CHANGE-TODOLIST-FILTER',
-    id: string
-    filter: FilterValuesType
+export type secondActionType = {
+    type: '',
+
 }
 
-type ActionsType = RemoveTodolistActionType | AddTodolistActionType | ChangeTodolistTitleActionType | ChangeTodolistFilterActionType;
+
+type ActionsType = firstlistActionType | secondActionTypeActionType;
 
 export const taskReducer = (state: TasksStateType, action: ActionsType) => {
     switch (action.type) {
-        case 'REMOVE-TODOLIST':
-            return state.filter(tl => tl.id != action.id)
-        case 'ADD-TODOLIST':
-            return [...state, {id: v1(), title: action.title, filter: "all"}]
-        case 'CHANGE-TODOLIST-TITLE': {
-            const todolist = state.find(tl => tl.id === action.id);
-            if (todolist) {
-                // если нашёлся - изменим ему заголовок
-                todolist.title = action.title;
-            }
-            return [...state]
-        }
-        case 'CHANGE-TODOLIST-FILTER': {
-            const todolist = state.find(tl => tl.id === action.id);
-            if (todolist) {
-                // если нашёлся - изменим ему заголовок
-                todolist.filter = action.filter;
-            }
-            return [...state];
-        }
+        case '':
+            return state
+        case '':
+            return state
         default:
             throw new Error("I don't understand this type")
     }
