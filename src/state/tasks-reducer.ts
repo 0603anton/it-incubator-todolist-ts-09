@@ -52,9 +52,9 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
                 [action.todolistId]:[]
             }
         case "REMOVE-TODOLIST":
-            // мой код написан не верно
+            // мой код написан не верно, но писал по аналогии с эталонным решением, тут нарушена иммутабельность
         // delete state[action.id]
-        // return state
+        // return {...state}
             //два ваиранта правильного решения
             let copyState = {...state}
             delete copyState[action.id]
